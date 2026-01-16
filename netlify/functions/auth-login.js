@@ -5,12 +5,17 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ error: 'Method not allowed' })
     }
   }
 
   try {
+    console.log('Auth login function called')
+    console.log('Environment variables set:', !!process.env.SUPABASE_URL, !!process.env.SUPABASE_ANON_KEY)
+    
     const { email, password } = JSON.parse(event.body)
+    console.log('Login attempt for:', email)
 
     // Create Supabase client with environment variables (set in Netlify dashboard)
     const supabase = createClient(
@@ -24,15 +29,19 @@ exports.handler = async (event) => {
       password
     })
 
+    console.log('Supabase response - error:', error, 'data:', data)
+
     if (error) {
       return {
         statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ error: error.message })
       }
     }
 
     return {
       statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         success: true,
         session: data.session,
@@ -40,9 +49,11 @@ exports.handler = async (event) => {
       })
     }
   } catch (err) {
+    console.error('Auth login error:', err)
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Server error', details: err.message })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: err.message, stack: err.stack })
     }
   }
 }

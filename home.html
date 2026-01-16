@@ -31,10 +31,11 @@
                 Here you can find information about our services, news, and how to get involved. If you are already emplyed with us, please sign in <a onclick="loginpopup()"><span class='underline cursor-pointer'>here</span></a>.</p>
         </div>
         <div id='login-container' class="w-fit m-auto hidden">
-            <form action="signin.html" method="get" class="flex flex-col items-center justify-center p-2 bg-blue-600 border border-white border-2  rounded-lg mt-5 m-auto w-[300px]">
+            <form id="login-form" class="flex flex-col items-center justify-center p-2 bg-blue-600 border border-white border-2  rounded-lg mt-5 m-auto w-[300px]">
                 <h2 class="text-white font-bold text-xl mb-2">Trooper Sign In</h2>
-                <input type="text" name="username" placeholder="Username" class="mb-2 p-1 rounded w-[250px] border-b border-white"/>
-                <input type="password" name="password" placeholder="Password" class="mb-2 p-1 rounded w-[250px] border-b border-white"/>
+                <input type="email" id="email-input" name="email" placeholder="Email" class="mb-2 p-1 rounded w-[250px] border-b border-white" required/>
+                <input type="password" id="password-input" name="password" placeholder="Password" class="mb-2 p-1 rounded w-[250px] border-b border-white" required/>
+                <div id="login-error" class="text-red-300 text-sm mb-2 hidden"></div>
                 <button type="submit" class="bg-white text-blue-700 font-bold p-2 rounded w-[100px]">Sign In</button>
             </form>
         </div>
@@ -57,5 +58,7 @@
     </div>
     <script src='/loginpopoup.js'></script>
     <script src="./home.js"></script>
+    <script src="./auth-client.js"></script>
+    <script src="./auth-handler.js"></script>
 </body>
 </html>

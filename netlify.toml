@@ -5,3 +5,5 @@
 [dev]
   functions = "netlify/functions"
   publish = "."
+  port = 8000
+  targetPort = 8001
