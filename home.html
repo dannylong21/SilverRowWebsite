@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/output.css" rel="stylesheet">
+    <title>San Andreas State Patrol Home</title>
+    <style>
+        .image-container {
+            background-image: url('/imgs/skyline.jpg');
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container m-auto relative">
+        <div class="container text-center m-auto">
+            <p class="text-white text-5xl font-bold pt-10 text-center">San Andreas State Patrol</p>
+            <p class="text-white text-2xl text-center">Serving the state of San Andreas with pride and dedication.</p>
+        </div>
+        <div class="flex flex-col items-center justify-center p-5 border-2 border-white bg-blue-700 w-[500px] h-[200px] rounded-lg m-auto mt-5">
+            <h1 class="font-bold text-white text-2xl m-auto text-center">
+                Welcome to the official SASP website
+            </h1>
+            <p class="text-white text-center">In recent times, we have strived to make the relation between our department and the 
+                community stronger by increasing our focus on transparency and accessibility. 
+                Here you can find information about our services, news, and how to get involved. If you are already emplyed with us, please sign in <a onclick="loginpopup()"><span class='underline cursor-pointer'>here</span></a>.</p>
+        </div>
+        <div id='login-container' class="w-fit m-auto hidden">
+            <form action="signin.html" method="get" class="flex flex-col items-center justify-center p-2 bg-blue-600 border border-white border-2  rounded-lg mt-5 m-auto w-[300px]">
+                <h2 class="text-white font-bold text-xl mb-2">Trooper Sign In</h2>
+                <input type="text" name="username" placeholder="Username" class="mb-2 p-1 rounded w-[250px] border-b border-white"/>
+                <input type="password" name="password" placeholder="Password" class="mb-2 p-1 rounded w-[250px] border-b border-white"/>
+                <button type="submit" class="bg-white text-blue-700 font-bold p-2 rounded w-[100px]">Sign In</button>
+            </form>
+        </div>
+        <div id='navbar-container' class="navbar bg-white absolute bottom-0 flex justify-between w-full h-[80px]">
+            <div class="flex items-center">
+            <img src="/imgs/SAST.png" class="h-[70px]"/>
+            <p class="font-bold text-xl">SASP</p>
+                </div>
+        <ul class="flex p-2 items-center gap-4 text-gray-600 font-bold">
+            <li><a onclick="home()" id='home-menu-btn' class="btn btn-ghost normal-case text-xl">Home</a></li>
+            <li><a onclick="aboutus()" id="aboutus-menu-btn" class="btn btn-ghost normal-case text-xl">About Us</a></li>
+            <li><a onclick ="personnel()" id="personnel-menu-btn" class="btn btn-ghost normal-case text-xl">Personnel</a></li>
+            <li><a onclick="services()" id="services-menu-btn" class="btn btn-ghost normal-case text-xl">Services</a></li>
+            <li><a onclick="contact()" id="contact-menu-btn" class="btn btn-ghost normal-case text-xl">Contact</a></li>
+        </ul>
+    </div>
+    </div>
+    <div id='roster-table' class="">
+    fdgdfgdfgdfg
+    </div>
+    <script src='/loginpopoup.js'></script>
+    <script src="./home.js"></script>
+</body>
+</html>
