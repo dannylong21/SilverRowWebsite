@@ -45,20 +45,48 @@
             <p class="font-bold text-xl">SASP</p>
                 </div>
         <ul class="flex p-2 items-center gap-4 text-gray-600 font-bold">
-            <li><a onclick="home()" id='home-menu-btn' class="btn btn-ghost normal-case text-xl">Home</a></li>
-            <li><a onclick="aboutus()" id="aboutus-menu-btn" class="btn btn-ghost normal-case text-xl">About Us</a></li>
-            <li><a onclick ="personnel()" id="personnel-menu-btn" class="btn btn-ghost normal-case text-xl">Personnel</a></li>
-            <li><a onclick="services()" id="services-menu-btn" class="btn btn-ghost normal-case text-xl">Services</a></li>
-            <li><a onclick="contact()" id="contact-menu-btn" class="btn btn-ghost normal-case text-xl">Contact</a></li>
+            <li><a onclick="home()" id='home-menu-btn' class="btn btn-ghost normal-case text-xl cursor-pointer hover:text-black transition-all duration-600">Home</a></li>
+            <li><a onclick="aboutus()" id="aboutus-menu-btn" class="btn btn-ghost normal-case text-xl cursor-pointer hover:text-black transition-all duration-600">About Us</a></li>
+            <li><a onclick ="personnel()" id="personnel-menu-btn" class="btn btn-ghost normal-case text-xl cursor-pointer hover:text-black transition-all duration-600">Personnel</a></li>
+            <li><a onclick="services()" id="services-menu-btn" class="btn btn-ghost normal-case text-xl cursor-pointer hover:text-black transition-all duration-600">Services</a></li>
+            <li><a onclick="contact()" id="contact-menu-btn" class="btn btn-ghost normal-case text-xl cursor-pointer hover:text-black transition-all duration-600">Contact</a></li>
         </ul>
     </div>
     </div>
-    <div id='roster-table' class="">
-    fdgdfgdfgdfg
+    <div id="roster-table" class="max-w-6xl mx-auto mt-10 bg-white/90 border border-gray-200 rounded-xl shadow-lg p-6" data-table="roster" data-supabase-url="" data-supabase-key="">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <div>
+                <p class="text-xl font-semibold text-gray-900">Roster</p>
+                <p class="text-sm text-gray-600">Live roster data from Supabase</p>
+            </div>
+            <div id="roster-status" class="text-sm text-gray-500">Waiting for Supabase configuration...</div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+            <input id="roster-search" type="search" placeholder="Search roster..." class="px-3 py-2 border border-gray-300 rounded-lg w-full sm:w-64 text-gray-900" />
+            <select id="roster-division-filter" class="px-3 py-2 border border-gray-300 rounded-lg text-gray-900 hidden"></select>
+            <select id="roster-status-filter" class="px-3 py-2 border border-gray-300 rounded-lg text-gray-900 hidden"></select>
+            <button id="roster-reset" class="px-3 py-2 border border-gray-200 rounded-lg text-gray-800 bg-gray-100 hover:bg-gray-200 transition">Reset</button>
+        </div>
+
+        <details class="mb-4 bg-gray-50 border border-gray-200 rounded-lg p-3">
+            <summary class="font-semibold text-gray-800 cursor-pointer">Show / hide columns</summary>
+            <div id="roster-column-toggles" class="mt-2 flex flex-wrap gap-3 text-sm text-gray-800"></div>
+        </details>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead id="roster-head" class="bg-gray-50"></thead>
+                <tbody id="roster-body" class="divide-y divide-gray-200"></tbody>
+            </table>
+        </div>
+        <p id="roster-empty" class="text-sm text-gray-500 mt-3 hidden">No roster records to display.</p>
     </div>
     <script src='/loginpopoup.js'></script>
     <script src="./home.js"></script>
     <script src="./auth-client.js"></script>
     <script src="./auth-handler.js"></script>
+    <script src="./auth-roster.js"></script>
+    <script type="module" src="./roster.js"></script>
 </body>
 </html>
